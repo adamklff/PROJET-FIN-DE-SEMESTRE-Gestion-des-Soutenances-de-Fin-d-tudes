@@ -1,0 +1,287 @@
+/* Modern & Colorful Style - Gestion des Soutenances 2026 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+    color: #2d3748;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header - Nice gradient */
+header {
+    background: linear-gradient(135deg, #4c51bf 0%, #667eea 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 15px rgba(76, 81, 191, 0.3);
+    position: relative;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation links - modern look */
+nav a {
+    color: white;
+    margin-right: 1.8rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* Main content wrapper */
+main {
+    max-width: 1280px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Card - used for most content blocks */
+.card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 2.2rem;
+    margin-bottom: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Forms - colorful & modern */
+form {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+label {
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.6rem;
+    display: block;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.4rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+}
+
+/* Buttons - colorful family */
+.btn {
+    padding: 0.9rem 1.8rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #468fc0;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #24639e;
+}
+
+.btn-danger {
+    background: #fdfdfd;
+    color: rgb(231, 43, 43);
+}
+
+.btn-danger:hover {
+    background: #ec4141;
+}
+
+/* Tables - modern & colorful */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+th {
+    background: #4c51bf;
+    color: white;
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #edf2f7;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background: #f7fafc;
+}
+
+/* Messages - colorful & friendly */
+.success, .error, .info {
+    padding: 1.2rem 1.6rem;
+    margin: 1.5rem 0;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.success {
+    background: #d4f4e2;
+    color: #2f855a;
+    border-left: 6px solid #38a169;
+}
+
+.error {
+    background: #fee2e2;
+    color: #c53030;
+    border-left: 6px solid #e53e3e;
+}
+
+.info {
+    background: #ebf8ff;
+    color: #2b6cb0;
+    border-left: 6px solid #4299e1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main { padding: 0 1rem; }
+    .card, form { padding: 1.6rem; }
+}
+/* === Modern & Colorful Links === */
+
+a {
+    color: #4c51bf;               /* Nice blue-purple */
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Underline animation on hover */
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    transition: width 0.35s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+a:hover {
+    color: #5a67d8;
+    transform: translateY(-1px);
+}
+
+/* Special styles for buttons/links that look like buttons */
+a.btn-link {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    background: #667eea;
+    color: white !important;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.25);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+a.btn-link:hover {
+    background: #5a67d8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+}
+
+/* For secondary links (e.g., "Retour au tableau de bord") */
+a.secondary {
+    color: #718096;
+    font-weight: 400;
+}
+
+a.secondary:hover {
+    color: #4c51bf;
+}
+
+/* Style for the remember me section */
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.remember-me input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2); /* Slightly larger */
+}
+
+.remember-me label {
+  margin: 0;
+  cursor: pointer;
+}
