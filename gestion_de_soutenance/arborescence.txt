@@ -1,0 +1,106 @@
+.
+├── arborescence.txt
+├── assets
+│   └── css
+│       └── style.css
+├── assistante
+│   ├── dossiers.php
+│   └── salles.php
+├── commun
+│   └── generer_convocation_etudiant.php
+├── coordinateur
+│   ├── affecter_encadrant.php
+│   ├── assigner_jury.php
+│   ├── generer_pv.php
+│   ├── gerer_periodes_disponibilite.php
+│   ├── mes_plannings.php
+│   ├── planification_manuelle.php
+│   └── projets_en_attente.php
+├── dashboard.php
+├── data_base
+│   ├── db.opt
+│   ├── disponibilites.frm
+│   ├── disponibilites.ibd
+│   ├── filieres.frm
+│   ├── filieres.ibd
+│   ├── jurys.frm
+│   ├── jurys.ibd
+│   ├── messages.frm
+│   ├── messages.ibd
+│   ├── password_resets.frm
+│   ├── password_resets.ibd
+│   ├── periodes_disponibilite.frm
+│   ├── periodes_disponibilite.ibd
+│   ├── projets.frm
+│   ├── projets.ibd
+│   ├── rapports.frm
+│   ├── rapports.ibd
+│   ├── remember_tokens.frm
+│   ├── remember_tokens.ibd
+│   ├── salles.frm
+│   ├── salles.ibd
+│   ├── soutenances.frm
+│   ├── soutenances.ibd
+│   ├── utilisateurs.frm
+│   └── utilisateurs.ibd
+├── directeur
+│   ├── planning.php
+│   ├── signer_pv.php
+│   └── stats.php
+├── etudiant
+│   ├── inscription.php
+│   ├── resultats.php
+│   ├── soumettre_rapport.php
+│   ├── telecharger_convocation.php
+│   └── telecharger_pv.php
+├── fpdf
+│   ├── font
+│   │   ├── courierbi.php
+│   │   ├── courierb.php
+│   │   ├── courieri.php
+│   │   ├── courier.php
+│   │   ├── helveticabi.php
+│   │   ├── helveticab.php
+│   │   ├── helveticai.php
+│   │   ├── helvetica.php
+│   │   ├── symbol.php
+│   │   ├── timesbi.php
+│   │   ├── timesb.php
+│   │   ├── timesi.php
+│   │   ├── times.php
+│   │   └── zapfdingbats.php
+│   └── fpdf.php
+├── includes
+│   ├── config.php
+│   ├── footer.php
+│   ├── functions.php
+│   └── header.php
+├── index.php
+├── logout.php
+├── mot-de-passe-oublie.php
+├── professeur
+│   ├── ajouter_disponibilite.php
+│   ├── mes_disponibilites.php
+│   ├── mes_jurys.php
+│   ├── mes_projets.php
+│   ├── saisir_note.php
+│   ├── supprimer_creneau.php
+│   └── valider_rapport.php
+├── reinitialiser-mot-de-passe.php
+├── test.php
+├── uploades
+├── uploads
+│   └── rapports
+│       └── rapport_1_v1_1768160037.pdf
+└── vendor
+    └── PHPMailer
+        └── src
+            ├── DSNConfigurator.php
+            ├── Exception.php
+            ├── OAuth.php
+            ├── OAuthTokenProvider.php
+            ├── PHPMailer.php
+            ├── POP3.php
+            └── SMTP.php
+
+19 directories, 85 files
