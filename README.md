@@ -13,43 +13,42 @@ Les objectifs principaux sont :
 * **Langage Backend :** PHP 8+
 * **Base de Données :** MySQL
 * **Frontend :** HTML5, CSS3
-* **Outils :** GitHub pour le versioning, MAMP/XAMPP pour le serveur local.
+* **Outils :** GitHub pour le versioning, MAMP/XAMPP pour le serveur local, FPDF pour la génération de documents.
 
-## 🚀 Installation et Exécution
-1.  Cloner ce dépôt : `git clone https://github.com/votre-username/gestion-soutenances.git`
-2.  Importer la base de données :
+## 🚀 Instructions d'Installation et d'Exécution
+1.  **Cloner le dépôt :**
+    ```bash
+    git clone [https://github.com/votre-username/votre-repo.git](https://github.com/votre-username/votre-repo.git)
+    ```
+2.  **Importer la Base de Données :**
     * Ouvrir phpMyAdmin.
-    * Créer une base nommée `soutenance_db`.
-    * Importer le script SQL fourni dans le dossier `/sql` ou à la racine.
-3.  Configurer la connexion :
-    * Modifier le fichier `config/db.php` avec vos identifiants MySQL.
-4.  Lancer le projet via votre serveur local (ex: `http://localhost/gestion-soutenances`).
+    * Créer une base de données vide nommée `gestion_soutenances` (ou le nom dans votre config).
+    * Importer le fichier `.sql` fourni à la racine du projet.
+3.  **Configurer la connexion :**
+    * Ouvrir le fichier `includes/config.php` (ou `config/db.php`).
+    * Vérifier les identifiants (`root`, mot de passe vide ou `root`).
+4.  **Lancer le projet :**
+    * Placer le dossier du projet dans `htdocs` (XAMPP) ou `www` (MAMP/WAMP).
+    * Accéder via le navigateur : `http://localhost/nom-du-dossier`.
 
 ## 👥 Membres du Groupe et Répartition des Tâches
-Ce projet est réalisé par un groupe de 5 étudiants. Voici la répartition officielle des modules :
 
-| Membre | Module | Responsabilités & Livrables |
+| Membre | Module | Responsabilités Principales |
 | :--- | :--- | :--- |
-| **Membre 1** | **Backend et Sécurité** | • Authentification & RBAC (Rôles)<br>• Connexion sécurisée BDD<br>• Gestion des sessions |
-| **Membre 2** | **Projets et Étudiants** | • Inscription des étudiants & Binômes<br>• Upload et gestion des rapports PDF<br>• Suivi du statut du projet |
-| **Membre 3** | **Encadrants** | • Gestion des disponibilités (Calendrier)<br>• Validation des rapports<br>• Consultation des jurys |
-| **Membre 4** | **Planning et Jurys** | • Algorithme de génération de planning<br>• Affectation et équilibrage des jurys<br>• Détection des conflits |
-| **Membre 5** | **Interface et Documents** | • Design global (UI/UX) & Dashboards<br>• Génération des PDF officiels (Convocations, PV)<br>• Feuilles d'émargement |
-
-*(Note : Remplacez "Membre X" par les noms réels des étudiants dans le tableau ci-dessus)*
+| **AIT BEN HADDOU Abderrahmane** | **Backend et Sécurité** | • Authentification & RBAC (Rôles)<br>• Connexion sécurisée BDD<br>• Gestion des sessions |
+| **BAHAJA Douae** | **Projets et Étudiants** | • Inscription des étudiants & Binômes<br>• Upload et gestion des rapports<br>• Suivi du statut du projet |
+| **EL KHOUDARI Marwa** | **Encadrants** | • Gestion des disponibilités (Calendrier)<br>• Validation des rapports<br>• Notation et Feedback |
+| **KHLIFI Adam** | **Planning et Jurys** | • Algorithme de génération de planning<br>• Affectation et équilibrage des jurys<br>• Gestion des salles et conflits |
+| **BOULAHBACH Malak** | **Interface et Documents** | • Design global (UI/UX) & Dashboards<br>• Génération des PDF officiels (Convocations, PV)<br>• Feuilles d'émargement |
 
 ## 📂 Architecture du Projet
-L'application suit une structure modulaire MVC simplifiée :
+L'application suit une structure modulaire :
 * `/auth` : Scripts de connexion/déconnexion.
 * `/projets` : Gestion des fiches projets et dépôts.
-* `/planning` : Algorithme de planification et vues calendrier.
+* `/encadrants` : Espace professeur pour validation.
+* `/planning` : Algorithme de planification.
 * `/documents` : Scripts de génération de PDF.
 * `/assets` : Feuilles de style CSS et scripts JS.
 
-## ⚙️ Fonctionnalités Clés
-* **Algorithme de Planification :** Vérifie la disponibilité des salles, des encadrants et des membres du jury pour proposer des créneaux optimaux.
-* **Sécurité :** Contrôle d'accès strict (RBAC) pour 5 rôles (Étudiant, Professeur, Coordinateur, Directeur, Assistante).
-* **Digitalisation :** Signature électronique des PVs et archivage numérique.
-
 ---
-*Année Universitaire : 2025-2026*
+*Projet réalisé dans le cadre du module de Développement Web - Année Universitaire 2025-2026*
