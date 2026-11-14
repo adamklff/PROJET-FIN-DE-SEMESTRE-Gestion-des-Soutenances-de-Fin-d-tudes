@@ -12,9 +12,23 @@ Application web de groupe en PHP et MySQL pour organiser les soutenances de proj
 
 Le code se trouve dans [`gestion_de_soutenance/`](gestion_de_soutenance/). Les dossiers `etudiant/`, `professeur/`, `coordinateur/` et `directeur/` regroupent les pages par rôle. Le [rapport de projet](Rapport_PFE_Gestion_Soutenances.pdf) décrit le contexte académique.
 
-## État du projet
+## Lancer la démo en local
 
-Le projet utilise PHP, l’extension MySQLi et MySQL. Le fichier [`database.sql`](gestion_de_soutenance/data_base/database.sql) est vide dans la version actuelle. Pour exécuter le projet localement, il faut d’abord disposer d’un schéma et de données de démonstration, puis configurer la connexion MySQL. L’envoi d’e-mails nécessite aussi une configuration SMTP locale.
+Il faut PHP 8 avec MySQLi et un serveur MySQL ou MariaDB. Créez une base vide nommée `gestion_soutenances`, puis importez [le schéma](gestion_de_soutenance/data_base/database.sql). Depuis la racine du dépôt, avec Bash et un client MySQL configuré pour votre installation :
+
+```sh
+mysql -u root -p -e "CREATE DATABASE gestion_soutenances CHARACTER SET utf8mb4"
+mysql -u root -p gestion_soutenances < gestion_de_soutenance/data_base/database.sql
+read -rsp "Mot de passe de démo (12 caractères minimum) : " DEMO_PASSWORD
+export DEMO_PASSWORD
+php gestion_de_soutenance/data_base/seed_demo.php
+unset DEMO_PASSWORD
+php -S 127.0.0.1:8000 -t gestion_de_soutenance
+```
+
+Définissez `DB_HOST`, `DB_USER`, `DB_PASS` ou `DB_NAME` selon votre installation avant de lancer PHP. Ouvrez `http://127.0.0.1:8000/` et connectez-vous avec `etudiant@example.test`, `professeur@example.test`, `coordinateur@example.test`, `directeur@example.test` ou `assistante@example.test` et le mot de passe choisi. Les comptes et la salle sont des données fictives. Les paramètres `SMTP_USERNAME` et `SMTP_PASSWORD` activent l’envoi d’e-mails. `SMTP_HOST`, `SMTP_PORT` et `SMTP_FROM` sont facultatifs.
+
+Cette démo académique est prévue pour une utilisation locale. Le schéma a été reconstruit à partir des requêtes PHP avec l’aide de l’IA.
 
 ## Équipe
 

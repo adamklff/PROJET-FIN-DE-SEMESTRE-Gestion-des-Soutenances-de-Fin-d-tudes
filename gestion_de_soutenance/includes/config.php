@@ -1,9 +1,9 @@
 <?php
 // Database configuration - XAMPP default settings
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');          // ← empty password on default XAMPP
-define('DB_NAME', 'gestion_soutenances');
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') !== false ? getenv('DB_PASS') : '');
+define('DB_NAME', getenv('DB_NAME') ?: 'gestion_soutenances');
 
 // Connect to DB
 function getDB() {

@@ -208,20 +208,24 @@ function sendEmail($to, $subject, $body) {
     require_once __DIR__ . '/../vendor/PHPMailer/src/SMTP.php';
     require_once __DIR__ . '/../vendor/PHPMailer/src/Exception.php';
 
+    $username = getenv('SMTP_USERNAME');
+    $password = getenv('SMTP_PASSWORD');
+    if (!$username || !$password) {
+        error_log('SMTP configuration is missing.');
+        return false;
+    }
+
     $mail = new PHPMailer\PHPMailer\PHPMailer(true);
 
     try {
-        // Server settings (use your Gmail or other SMTP)
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';             // Gmail SMTP
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'benhabder@gmail.com';        // ← change to your email
-        $mail->Password   = 'sowe ziso mhgn xful';          // ← Gmail App Password (not normal password!)
+        $mail->Host = getenv('SMTP_HOST') ?: 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $username;
+        $mail->Password = $password;
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
-
-        // Recipients
-        $mail->setFrom('yourgmail@gmail.com', 'Gestion Soutenances');
+        $mail->Port = (int) (getenv('SMTP_PORT') ?: 587);
+        $mail->setFrom(getenv('SMTP_FROM') ?: $username, 'Gestion des Soutenances');
         $mail->addAddress($to);
 
         // Content

@@ -1,0 +1,39 @@
+name: PHP demo
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: local-ci
+          MYSQL_DATABASE: gestion_soutenances
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping --silent" --health-interval=5s --health-timeout=5s --health-retries=15
+    env:
+      DB_HOST: 127.0.0.1
+      DB_USER: root
+      DB_PASS: local-ci
+      DEMO_PASSWORD: sample-password-ci-only
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify demo setup and login
+        shell: bash
+        run: |
+          php -m | grep -ix mysqli
+          find gestion_de_soutenance -name '*.php' -print0 | xargs -0 -n1 php -l > /tmp/php-lint
+          mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASS" gestion_soutenances < gestion_de_soutenance/data_base/database.sql
+          php gestion_de_soutenance/data_base/seed_demo.php
+          php gestion_de_soutenance/data_base/seed_demo.php
+          php -S 127.0.0.1:8000 -t gestion_de_soutenance > /tmp/demo-php.log 2>&1 &
+          curl -fsS --retry 5 --retry-connrefused http://127.0.0.1:8000/ -o /dev/null
+          curl -fsS -c /tmp/ci-cookies -b /tmp/ci-cookies -L \
+            --data-urlencode 'email=etudiant@example.test' \
+            --data-urlencode "password=$DEMO_PASSWORD" --data 'login=1' \
+            -o /tmp/dashboard.html -w '%{url_effective}\n' http://127.0.0.1:8000/ \
+            | grep -Fx 'http://127.0.0.1:8000/dashboard.php'
+          grep -F 'Etudiant Demo' /tmp/dashboard.html
