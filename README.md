@@ -1,54 +1,29 @@
-# Gestion des Soutenances de Fin d'Études
+# Gestion des soutenances de fin d’études
 
-## 📖 Description du Projet
-Ce projet est une application web complète destinée à automatiser et centraliser la gestion des soutenances de fin d'études (PFE). Il permet de coordonner les interactions entre étudiants, professeurs, coordinateurs, directeurs et l'administration.
+Application web de groupe en PHP et MySQL pour organiser les soutenances de projets de fin d’études. Les étudiants déposent leur rapport, les enseignants indiquent leurs disponibilités et les coordinateurs planifient les soutenances et composent les jurys.
 
-Les objectifs principaux sont :
-* **Centralisation :** Gestion des PFE, affectation des encadrants et suivi.
-* **Planification :** Algorithme automatique pour générer les plannings de soutenances sans conflits.
-* **Jurys :** Constitution équitable des jurys et gestion des disponibilités.
-* **Documents :** Génération automatique des convocations et PVs au format PDF.
+## Fonctionnalités
 
-## 🛠 Technologies Utilisées
-* **Langage Backend :** PHP 8+
-* **Base de Données :** MySQL
-* **Frontend :** HTML5, CSS3
-* **Outils :** GitHub pour le versioning, MAMP/XAMPP pour le serveur local, FPDF pour la génération de documents.
+- Dépôt et validation des rapports, affectation des encadrants et saisie des notes.
+- Planification manuelle avec contrôles de conflits et gestion des jurys.
+- Génération des convocations et procès-verbaux en PDF avec FPDF.
 
-## 🚀 Instructions d'Installation et d'Exécution
-1.  **Cloner le dépôt :**
-    ```bash
-    git clone [https://github.com/votre-username/votre-repo.git](https://github.com/votre-username/votre-repo.git)
-    ```
-2.  **Importer la Base de Données :**
-    * Ouvrir phpMyAdmin.
-    * Créer une base de données vide nommée `gestion_soutenances` (ou le nom dans votre config).
-    * Importer le fichier `.sql` fourni à la racine du projet.
-3.  **Configurer la connexion :**
-    * Ouvrir le fichier `includes/config.php` (ou `config/db.php`).
-    * Vérifier les identifiants (`root`, mot de passe vide ou `root`).
-4.  **Lancer le projet :**
-    * Placer le dossier du projet dans `htdocs` (XAMPP) ou `www` (MAMP/WAMP).
-    * Accéder via le navigateur : `http://localhost/nom-du-dossier`.
+## Structure du dépôt
 
-## 👥 Membres du Groupe et Répartition des Tâches
+Le code se trouve dans [`gestion_de_soutenance/`](gestion_de_soutenance/). Les dossiers `etudiant/`, `professeur/`, `coordinateur/` et `directeur/` regroupent les pages par rôle. Le [rapport de projet](Rapport_PFE_Gestion_Soutenances.pdf) décrit le contexte académique.
 
-| Membre | Module | Responsabilités Principales |
-| :--- | :--- | :--- |
-| **AIT BEN HADDOU Abderrahmane** | **Backend et Sécurité** | • Authentification & RBAC (Rôles)<br>• Connexion sécurisée BDD<br>• Gestion des sessions |
-| **BAHAJA Douae** | **Projets et Étudiants** | • Inscription des étudiants & Binômes<br>• Upload et gestion des rapports<br>• Suivi du statut du projet |
-| **EL KHOUDARI Marwa** | **Encadrants** | • Gestion des disponibilités (Calendrier)<br>• Validation des rapports<br>• Notation et Feedback |
-| **KHLIFI Adam** | **Planning et Jurys** | • Algorithme de génération de planning<br>• Affectation et équilibrage des jurys<br>• Gestion des salles et conflits |
-| **BOULAHBACH Malak** | **Interface et Documents** | • Design global (UI/UX) & Dashboards<br>• Génération des PDF officiels (Convocations, PV)<br>• Feuilles d'émargement |
+## État du projet
 
-## 📂 Architecture du Projet
-L'application suit une structure modulaire :
-* `/auth` : Scripts de connexion/déconnexion.
-* `/projets` : Gestion des fiches projets et dépôts.
-* `/encadrants` : Espace professeur pour validation.
-* `/planning` : Algorithme de planification.
-* `/documents` : Scripts de génération de PDF.
-* `/assets` : Feuilles de style CSS et scripts JS.
+Le projet utilise PHP, l’extension MySQLi et MySQL. Le fichier [`database.sql`](gestion_de_soutenance/data_base/database.sql) est vide dans la version actuelle. Pour exécuter le projet localement, il faut d’abord disposer d’un schéma et de données de démonstration, puis configurer la connexion MySQL. L’envoi d’e-mails nécessite aussi une configuration SMTP locale.
 
----
-*Projet réalisé dans le cadre du module de Développement Web - Année Universitaire 2025-2026*
+## Équipe
+
+| Membre | Responsabilités dans le projet |
+| --- | --- |
+| Abderrahmane Ait Ben Haddou | Authentification, rôles et sessions |
+| Douae Bahaja | Inscription, dépôt des rapports et suivi des projets |
+| Marwa El Khoudari | Disponibilités, validation des rapports et notation |
+| Adam Khlifi | Planification, affectation des jurys et gestion des conflits |
+| Malak Boulahbach | Interface, tableaux de bord et documents PDF |
+
+Projet de développement web, année universitaire 2025–2026.
