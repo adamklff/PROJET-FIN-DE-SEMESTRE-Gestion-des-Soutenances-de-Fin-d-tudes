@@ -16,13 +16,14 @@ $success = '';
 // Vérifie cookie "Se souvenir de moi"
 if (isset($_COOKIE['remember_token'])) {
     $token = $_COOKIE['remember_token'];
+    $db = getDB();
 
     $stmt = $db->prepare("
         SELECT u.id, u.nom, u.prenom, u.email, u.role, u.filiere_id
         FROM utilisateurs u
         JOIN remember_tokens t ON u.id = t.user_id
         WHERE t.token = ? 
-          AND t.expires_at > NOW()
+          AND t.expires_at > NOW() AND u.actif = 1
         LIMIT 1
     ");
 
@@ -49,7 +50,7 @@ if (isset($_COOKIE['remember_token'])) {
             header("Location: dashboard.php");
             exit;
         } else {
-            error_log("Token non trouvé ou expiré : $token");
+            error_log("Jeton de connexion absent ou expiré.");
             // Supprime le cookie invalide
             setcookie('remember_token', '', time() - 3600, '/');
         }
